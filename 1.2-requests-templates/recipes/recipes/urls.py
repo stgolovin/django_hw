@@ -15,7 +15,9 @@ Including another URLconf
 """
 
 from django.urls import path
+from calculator.views import get_ingr
 
 urlpatterns = [
+    path('geti/', get_ingr)
     # здесь зарегистрируйте вашу view-функцию
 ]
