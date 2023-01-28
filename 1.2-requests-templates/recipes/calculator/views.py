@@ -23,11 +23,10 @@ DATA = {
 def get_ingr(request):
     recipe = request.GET.get('recipe')
     servings = int(request.GET.get('servings', 1))
+    new_recipe = {}
     for k, v in DATA[recipe].items():
-        context = dict()
-        context = context.clear()
-        DATA[recipe].update({k: v * servings})
+        new_recipe[k] = v * servings
     context = {
-        'recipe': DATA[recipe]
+        'recipe': new_recipe
     }
     return render(request, 'calculator/index.html', context)
